@@ -100,7 +100,7 @@ TRAVERSE may acknowledge `SYNCED` after exact MySQL read-back.
 Offline checks:
 
 ```bash
-node --check scripts/traverse.mjs
+node --check scripts/TRAVERSE.mjs
 node --check scripts/firebase-mysql-sync-master.mjs
 node tests/firebase-mysql-sync-master.test.mjs
 git diff --check
