@@ -1,0 +1,23 @@
+[Unit]
+Description=TRAVERSE Firebase to MySQL projection service
+After=network-online.target mysql.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/var/www/html/rbmsv4
+EnvironmentFile=/var/www/html/rbmsv4/.env
+EnvironmentFile=-/etc/rbmsv4-firebase-mysql-sync.env
+ExecStart=/usr/local/bin/node /var/www/html/rbmsv4/scripts/traverse.mjs
+Restart=on-failure
+RestartSec=10
+User=www-data
+Group=www-data
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=true
+ReadWritePaths=/var/www/html/rbmsv4/storage
+
+[Install]
+WantedBy=multi-user.target
